@@ -11,7 +11,7 @@
 ## Examples of Use
 
 ## Team Member
-- Hyunsu Kim (Team Leader) https://github.com/khs220507
+- Hyunsu Kim (Project Leader) https://github.com/khs220507
 - Danya Kwak
 - Minji Kim
 - Taemin Park
