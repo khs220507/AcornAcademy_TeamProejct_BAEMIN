@@ -1,3 +1,5 @@
+use baemin_db;
+
 -- 01 
 
 -- 02
