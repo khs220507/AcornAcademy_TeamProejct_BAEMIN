@@ -35,11 +35,27 @@ create table cart_tbl (
     foreign key  (optionCode) references option_tbl(optionCode)
 )auto_increment = 60000;
 
-
 -- 07
-
+CREATE TABLE order_tbl (
+    orderNumber INT AUTO_INCREMENT PRIMARY KEY,
+    userCode VARCHAR(20),
+    storeCode VARCHAR(20),
+    orderDate DATE,
+    payType TINYINT(1) UNSIGNED,
+    orderType TINYINT(1) UNSIGNED,
+    reqToSeller VARCHAR(300),
+    reqToRider VARCHAR(300),
+    orderStatus VARCHAR(20),
+    FOREIGN KEY (userCode) REFERENCES user_tbl(userCode),
+    FOREIGN KEY (storeCode) REFERENCES store_tbl(storeCode)
+) AUTO_INCREMENT = 70000;
 -- 08
-
+CREATE TABLE zzim_tbl (
+    userCode VARCHAR(20),
+    storeCode VARCHAR(20),
+    FOREIGN KEY (userCode) REFERENCES user_tbl(userCode),
+    FOREIGN KEY (storeCode) REFERENCES store_tbl(storeCode)
+);
 -- 09
 CREATE TABLE review_tbl (
     reviewCode INT AUTO_INCREMENT PRIMARY KEY,
