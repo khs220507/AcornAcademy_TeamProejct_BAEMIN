@@ -39,7 +39,7 @@ CREATE TABLE answer_tbl (
     answerDate DATE NOT NULL,
     answerContent VARCHAR(300) NOT NULL,
     FOREIGN KEY (reviewCode) REFERENCES review_tbl(reviewCode)
-);
+) AUTO_INCREMENT=100000;
 
 -- 11
 
