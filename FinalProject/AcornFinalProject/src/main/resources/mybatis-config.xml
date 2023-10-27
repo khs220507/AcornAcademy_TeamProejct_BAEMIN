@@ -5,5 +5,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="userDTO" type="com.acorn.finalPrj.userDTO"/>
+		
+		
+		<!-- <typeAlias alias="OrderDTO" type="com.acorn.finalPrj.User.OrderDTO"/>
+		<typeAlias alias="ZzimDTO" type="com.acorn.finalPrj.Home.ZzimDTO"/> -->
+		
 	</typeAliases>
 </configuration>

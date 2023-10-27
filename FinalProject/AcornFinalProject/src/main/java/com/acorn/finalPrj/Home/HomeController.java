@@ -10,4 +10,10 @@ public class HomeController {
 	public String home() {
 		return "home/home";
 	}
+	
+	@GetMapping("/cartList")
+	public String cartList() {
+		return "home/cart_list";
+	}
+	
 }
