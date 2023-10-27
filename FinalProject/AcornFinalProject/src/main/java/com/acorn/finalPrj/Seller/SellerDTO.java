@@ -9,19 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SellerDTO {
 
-	int storeCode;
-	String storeName;
-	String storeCategory;
-	String storeImage;
-	String storeAddress;
-	String storePhone;
-	int zzimCount;
-	int reviewCount;
-	double storeRating;
-	String storeDescription;
-	int minOrderPrice;
-	int deliveryFee;
-	String operatingTime;
-	String deliveryArea;
-	boolean storeStatus;
+	int sellerRegCode;
+	String sellerId;
+	String sellerPw;
+	String sellerName;
+	String sellerPhone;
+	String sellerEmail;
+	String sellerBirth;
+	boolean sellerGender;
+	boolean sellerStatus;
 }

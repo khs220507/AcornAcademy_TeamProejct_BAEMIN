@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: khs22
-Build-Jdk: 11.0.18
-=======
 Built-By: ptaem
 Build-Jdk: 11.0.19
->>>>>>> 8104c2dd29babeea82f9f6d7f0e48449a403d800
 Created-By: Maven Integration for Eclipse
 

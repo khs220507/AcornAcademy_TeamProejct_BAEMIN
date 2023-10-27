@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.acorn.storeMapper">
+
+	<!-- 가게관리 화면 -->
+	<!-- 사장이 등록한 가게 전체 조회 -->
+	<select id="selectAllStore" resultType="storeDTO">
+		SELECT *
+		FROM store_tbl;
+	</select>
+	
+	<!-- 가게 등록 -->
+	<insert id="regiStore" parameterType="String">
+		INSERT INTO store_tbl (storeName, storeCategory, storeImage, storeAddress, storePhone, zzimCount, reviewCount, storeRating, minOrderPrice, deliveryFee, deliveryArea, storeStatus)
+		VALUES 
+			#{storeName},
+	        #{storeCategory},
+	        #{storeImage},
+	        #{storeAddress},
+	        #{storePhone},
+	        #{zzimCount},
+	        #{reviewCount},
+	        #{storeRating},
+	        #{minOrderPrice},
+	        #{deliveryFee},
+	        #{deliveryArea},
+	        #{storeStatus}
+	</insert>
+	
+	<!-- 가게 수정 -->
+
+	
+	<!-- 메뉴, 정보, 리뷰 -->
+	<!-- 가게명, 평점, 리뷰수, 최소주문금액 조회-->
+	
+	<!-- 메뉴 탭 -->
+	<!-- 메뉴 분류 탭(메인, 사이드, 음료) -->
+	
+	<!-- 메뉴 전체 조회 -->
+	
+	<!-- 메뉴 등록 -->
+	
+	<!-- 메뉴 분류 수정 -->
+	
+	<!-- 메뉴 수정 -->
+	
+	<!-- 메뉴 삭제 -->
+
+	<!-- 옵션 화면 -->
+	<!-- 옵션 전체 조회 -->
+	
+	<!-- 옵션 등록 -->
+	
+	<!-- 옵션 카테고리 수정 -->
+	
+	<!-- 옵션 수정 -->
+	
+	<!-- 옵션 삭제 -->
+	
+	
+	<!-- 가게 정보 탭 -->
+	<!-- 가게 정보(소개:D, 시간:O, 사업자정보:SI-sellerName, storeAddress, sellerRegCode) 조회 -->
+	<select id="selectDOSI" resultType="storeDTO">
+		SELECT
+		  ISNULL(store_tbl.storeDescription, '') AS storeDescription,
+		  ISNULL(store_tbl.operatingTime, '') AS operatingTime,
+		  seller_tbl.sellerName,
+		  store_tbl.storeAddress,
+		  seller_tbl.sellerRegCode
+		FROM store_tbl
+		INNER JOIN seller_tbl ON store_tbl.sellerRegCode = seller_tbl.sellerRegCode;
+	</select>
+	
+	<!-- 가게 정보 수정 -->
+	<update id="modifingStoreInfo" parameterType="String">
+		UPDATE store_tbl
+		SET storeAddress = #{storeAddress},
+    	operatingTime = #{operatingTime},
+    	storeDescription = #{storeDescription}
+		WHERE storeCode = #{storeCode};
+	</update>
+	
+	<!-- 리뷰 탭 -->
+	<!-- 리뷰 전체 조회 : 보류 중 -->
+	<select id="selectAllReview" resultType="storeDTO">
+		SELECT
+			userNickName,
+			reviewRating,
+			menuName,
+			reviewContent,
+			reviewDate
+			reviewImage,
+			answerContent,
+			answerDate
+	</select>
+	
+	<!-- 답글 등록 -->
+	<update id="RegAnswer" parameterType="String">
+		INSERT INTO answer_tbl (answerDate, answerContent) VALUES #{sysDate}, #{answerContent};
+	</update>
+	
+	<!-- 답글 수정 -->
+	<update id="modifingAnswer" parameterType="String">
+		UPDATE answer_tbl
+		SET answerDate = #{sysDate},
+		answerContent = #{answerContent};
+	</update>
+	
+	<!-- 답글 삭제 -->
+	<delete id="deleteAnswer" parameterType="String">
+		DELETE FROM answer_tbl WHERE answerCode = #{answerCode};
+	</delete>
+	
+</mapper> 

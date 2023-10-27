@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressDTO {
+public class AnswerDTO {
 
-	int addressCode;
-	int userCode;
-	String deliveryAddress;
+	int answerCode;
+	int reviewCode;
+	String answerDate;
+	String answerContent;
 	
 }
