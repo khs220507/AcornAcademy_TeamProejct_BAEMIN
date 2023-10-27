@@ -178,8 +178,8 @@
                         <div><img class="section-cart-menuinfo-img" src="./쉑버거.jpg"></div>
                         <div>
                             <ul>
-                                <li>A</li>
-                                <li>B</li>
+                                <li>A내용</li>
+                                <li>B내용</li>
                             </ul>
                         </div>
                     </div>
