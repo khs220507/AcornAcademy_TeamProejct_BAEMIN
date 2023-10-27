@@ -29,7 +29,7 @@
       height: 100vh;
     }
 
-    /* 헤더 ////////////////////////////////////////////////////*/
+    /* 헤더 */
     header{
       display: flex;
       flex: 1.5;
@@ -131,8 +131,8 @@
 
     .kakao-map-modal-content{
       background-color: white;
-      width: 700px;
-      height: 600px;
+      width: 500px;
+      height: 400px;
       border-radius: 10px;
 
       position: absolute;
@@ -151,20 +151,20 @@
       right: 10px;
     }
     .kakao-map-wrap{
-      width: 600px;
-      height: 500px;
+      width: 400px;
+      height: 300px;
       border: 1px solid black;
       margin: 0 auto;
     }
 
-    /* 섹션  ////////////////////////////////////////////////////*/
+    /* 섹션 */
     section{
       flex: 7;
       width: 1280px;
       border: 1px solid black;
     }
 
-    /* 푸터  ////////////////////////////////////////////////////*/
+    /* 푸터 */
     footer{
       flex: 1.5;
       width: 1280px;
@@ -197,8 +197,7 @@
       <div class="kakao-map-modal-content">
         <a class="close-btn" href=""><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyklEQVR4nO2WQQ6DMAwE+QSofUgkr+T8/xBO5dDnUFE4tBEE27iKRFkpJ7JM7JAlTXPpLwWgA9Avo7P6iSiJ/czcAngAGKdBRM8Y410KNfsxV/k2fZgHycqnOcvc3J9MYAl8CyoGc9aq7AWrbdvzhBBuu2At3A2qgbtDhfs2lJ5ZjuGXSlW5V2qFu0Kl8J9ApWBNwrm32g3Oho/rMBw1jhMLwsESr0VpEskNzoYYdIGj1m8RtS4CvHJ10STSIT/mlSfVZc3Rf+kcegEOjsATVQE+UwAAAABJRU5ErkJggg=="></a>
         <div class="kakao-map-wrap">
-            <div id="address_info"></div>
-           
+
 
         </div>
 
@@ -213,7 +212,6 @@
     // 카카오맵 모달 띄우기
     $(".map-icon").click(function(){
       $(".kakao-map-modal").fadeIn();
-      map.relayout();
     });
 
     $(".close-btn").click(function(){
@@ -226,99 +224,14 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac76afb73e017bb01fa395c302f99e21"></script>
 <script type="text/javascript">
 	
-	var container = document.querySelector('.kakao-map-wrap'); //지도를 담을 영역의 DOM 레퍼런스
+	var container = document.querySelector('.kakao-map-modal-content .kakao-map-wrap'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
 		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
 		level: 3 //지도의 레벨(확대, 축소 정도)
 	};
 
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-
-
-  /////////////////geolocation API/////////////////
-  //map.html
-function currentLocation() {
-	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다
-	if (navigator.geolocation) {
-
-		// GeoLocation을 이용해서 접속 위치를 얻어옵니다
-		navigator.geolocation.getCurrentPosition(function(position) {
-
-			var lat = position.coords.latitude, // 위도
-			    lon = position.coords.longitude; // 경도
-
-			var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-			var message = '<div style="padding:5px; position:relative; bottom:5px;">현위치</div>'; // 인포윈도우에 표시될 내용입니다
-
-			// 마커와 인포윈도우를 표시합니다
-			displayMarker(locPosition, message);
-		});
-	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-
-		var locPosition = new kakao.maps.LatLng(37.4812845080678, 126.952713197762),
-			message = '현재 위치를 알 수 없어 기본 위치로 이동합니다.'
-
-		currentLatLon['lat'] = 33.450701
-		currentLatLon['lon'] = 126.570667
-
-		displayMarker(locPosition, message);
-	}
-	return true
-}
-
-currentLocation();
-
-
-////////////////////////// 현위치에 마커와 인포윈도우 표시하기////////////////////////////
-	//map.html
-function displayMarker(locPosition, message) {
-  
-  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-  var imageSize = new kakao.maps.Size(24, 35);
-
-	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-
-	// 마커를 생성합니다
-	var marker = new kakao.maps.Marker({
-		map: map, 
-		position: locPosition, 
-		image : markerImage, 
-	});
-
-	var iwContent = message, // 인포윈도우에 표시할 내용
-		iwRemoveable = true;
-
-	// 인포윈도우를 생성합니다
-	var infowindow = new kakao.maps.InfoWindow({
-		content : iwContent,
-		removable : iwRemoveable
-	});
-
-	// 인포윈도우를 마커위에 표시합니다
-	infowindow.open(map, marker);
-
-	// 지도 중심좌표를 접속위치로 변경합니다
-	map.setCenter(locPosition);
-
-}
-
-////////////////////////// 클릭한 위치에 마커 표시하기 ////////////////////////////
-
-// 지도에 클릭 이벤트를 등록합니다
-// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
-    
-    // 클릭한 위도, 경도 정보를 가져옵니다 
-    var latlng = mouseEvent.latLng; 
-    
-    // 클릭한 위치에 새로운 마커를 생성합니다
-    displayMarker(latlng, "클릭한 위치");
-   
-    
-});
-
-
-
+	
 </script>
 
 </body>
