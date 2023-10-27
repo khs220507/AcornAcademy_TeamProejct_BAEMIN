@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.acorn.SellerMapper">
+
+	<select id="selectAll" resultType="SellerDTO">
+		SELECT *
+		FROM seller_tbl
+	</select>
+
+
+	<select id="selectOne" resultType="SellerDTO"
+		parameterType="String">
+		SELECT *
+		FROM seller_tbl
+		where sellerId = #{sellerId}
+	</select>
+
+	<insert id="insertSeller" parameterType="com.example.Seller">
+		INSERT INTO seller_tbl 
+		(sellerId, sellerPw, sellerName, sellerPhone, sellerEmail, sellerBirth, sellerGender, sellerStatus)
+		VALUES 
+		(#{sellerId}, #{sellerPw}, #{sellerName}, #{sellerPhone}, #{sellerEmail}, #{sellerBirth}, #{sellerGender}, #{sellerStatus})
+	</insert>
+</mapper>
