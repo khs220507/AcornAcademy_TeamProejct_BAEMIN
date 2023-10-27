@@ -14,7 +14,7 @@ create table user_tbl(
     userGender tinyint(1) not null, -- 0:남자, 1:여자
     userStatus tinyint(1) not null -- 0:회원탈퇴, 1:정상회원
 ) auto_increment=10000;
-
+insert into user_tbl (userId,userPw,userName,userNickname,userPhone,userAddress,userEmail,userBirth,userGender,userStatus)VALUES('testid','testpw','test','test','01011112222','인천서구장고개로309','test@gmail.com','210914','0','1');
 select * from user_tbl;
 
 -- 02 사장 seller_tbl
@@ -29,7 +29,8 @@ create table seller_tbl(
 	sellerGender tinyint(1) not null, -- 0:남자, 1:여자
     sellerStatus  tinyint(1) not null -- 0:회원탈퇴, 1:정상회원
 )auto_increment=20000;
-
+select * from seller_tbl;
+insert into seller_tbl (sellerId,sellerPw,sellerName,sellerPhone,sellerEmail,sellerBirth,sellerGender,sellerStatus)VALUES('testid','testpw','test','01011112222','test@gmail.com','210914','0','1');
 
 -- 03. 태민 store_tbl
 DROP TABLE IF EXISTS store_tbl;
@@ -121,12 +122,12 @@ create table cart_tbl (
     foreign key  (menuCode) references menu_tbl(menuCode),
     foreign key  (optionCode) references option_tbl(optionCode)
 )auto_increment = 60000;
-
+SELECT * FROM cart_tbl;
 -- 07
 CREATE TABLE order_tbl (
     orderNumber INT AUTO_INCREMENT PRIMARY KEY,
-    userCode VARCHAR(20),
-    storeCode VARCHAR(20),
+    userCode int,
+    storeCode int,
     orderDate DATE,
     payType TINYINT(1) UNSIGNED,
     orderType TINYINT(1) UNSIGNED,
@@ -136,19 +137,22 @@ CREATE TABLE order_tbl (
     FOREIGN KEY (userCode) REFERENCES user_tbl(userCode),
     FOREIGN KEY (storeCode) REFERENCES store_tbl(storeCode)
 ) AUTO_INCREMENT = 70000;
+drop table order_tbl;
+
+SELECT * FROM order_tbl;
 -- 08
 CREATE TABLE zzim_tbl (
-    userCode VARCHAR(20),
-    storeCode VARCHAR(20),
+    userCode int,
+    storeCode int,
     FOREIGN KEY (userCode) REFERENCES user_tbl(userCode),
     FOREIGN KEY (storeCode) REFERENCES store_tbl(storeCode)
 );
 -- 09
 CREATE TABLE review_tbl (
     reviewCode INT AUTO_INCREMENT PRIMARY KEY,
-    menuCode VARCHAR(20),
-    userCode VARCHAR(10),
-    storeCode VARCHAR(13),
+    menuCode int,
+    userCode int,
+    storeCode int,
     reviewImage VARCHAR(20) NOT NULL,
     reviewDate DATE NOT NULL,
     reviewRating INT NOT NULL,
@@ -162,7 +166,7 @@ CREATE TABLE review_tbl (
 -- 10
 CREATE TABLE answer_tbl (
     answerCode VARCHAR(20) NOT NULL PRIMARY KEY,
-    reviewCode VARCHAR(20),
+    reviewCode int,
     answerDate DATE NOT NULL,
     answerContent VARCHAR(300) NOT NULL,
     FOREIGN KEY (reviewCode) REFERENCES review_tbl(reviewCode)
@@ -192,3 +196,5 @@ INSERT INTO address_tbl (deliveryAddress) VALUES
   ('서울시 강남구 강남대로 543-21');
   
 SELECT * FROM menu_tbl;
+
+SHOW TABLES;
