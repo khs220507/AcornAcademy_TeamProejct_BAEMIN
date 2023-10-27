@@ -78,14 +78,14 @@
      	width: 350px;
      	height: 30px;
      	margin-left: 10px;
-     	margin-top: 5px;
+      margin-top: -100px;
      	/*border: none;*/
      	outline:none;
      }
       header .info-wrap .search-wrap img{
       	width: 25px;
       	height: 25px;
-      	margin-top: 10px;
+      	margin-top: 5px;
       }
     
     header .login-btn{
