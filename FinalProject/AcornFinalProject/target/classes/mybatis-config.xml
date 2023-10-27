@@ -4,9 +4,18 @@
 		"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+<<<<<<< HEAD
 
 		<typeAlias alias="SellerDTO" type="com.acorn.finalPrj.Seller.SellerDTO"/>
 		<typeAlias alias="StoreDTO" type="com.acorn.finalPrj.Store.StoreDTO"/>
 
+=======
+		<typeAlias alias="userDTO" type="com.acorn.finalPrj.userDTO"/>
+		
+		
+		<!-- <typeAlias alias="OrderDTO" type="com.acorn.finalPrj.User.OrderDTO"/>
+		<typeAlias alias="ZzimDTO" type="com.acorn.finalPrj.Home.ZzimDTO"/> -->
+		
+>>>>>>> 71e809152d08adf20c7881b30f32a4629bdd99d0
 	</typeAliases>
 </configuration>
