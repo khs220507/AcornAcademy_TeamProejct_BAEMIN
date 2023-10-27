@@ -5,5 +5,11 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="userDTO" type="com.acorn.finalPrj.userDTO"/>
+		<typeAlias alias="HomeDTO" type="com.acorn.finalPrj.Home.HomeDTO"/>
+		<typeAlias alias="SellerDTO" type="com.acorn.finalPrj.Seller.SellerDTO"/>
+		<typeAlias alias="StoreDTO" type="com.acorn.finalPrj.Store.StoreDTO"/>
+		<typeAlias alias="UserDTO" type="com.acorn.finalPrj.User.UserDTO"/>	
+		<typeAlias alias="OrderDTO" type="com.acorn.finalPrj.User.OrderDTO"/>
+		<typeAlias alias="ZzimDTO" type="com.acorn.finalPrj.Home.ZzimDTO"/>	
 	</typeAliases>
 </configuration>

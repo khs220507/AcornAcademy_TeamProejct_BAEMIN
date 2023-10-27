@@ -15,6 +15,16 @@ create table user_tbl(
     userStatus tinyint(1) not null -- 0:회원탈퇴, 1:정상회원
 ) auto_increment=10000;
 
+
+
+insert into user_tbl (userId, userPw, userName, userNickname, userPhone, userAddress, userEmail, userBirth, userGender, userStatus)
+values
+    ('user001', 'password123', '홍길동', '길동이', '010-1234-5678', '서울시 강남구', 'user001@email.com', '1990-05-15', 0, 1),
+    ('user002', 'pass456word', '김영희', '영희야', '010-9876-5432', '서울시 강북구', 'user002@email.com', '1988-12-03', 1, 1),
+    ('user003', 'secure789', '박철수', '철수씨', '010-1111-2222', '부산시 해운대구', 'user003@email.com', '1995-08-21', 0, 1),
+    ('user004', 'myPassw0rd', '이미정', '미정아', '010-3333-4444', '대구시 중구', 'user004@email.com', '1992-03-10', 1, 1),
+    ('user005', 'passWord@123', '정수빈', '수빈씨', '010-5555-6666', '인천시 남동구', 'user005@email.com', '1987-07-30', 1, 1);
+
 select * from user_tbl;
 
 -- 02 사장 seller_tbl
@@ -29,6 +39,13 @@ create table seller_tbl(
 	sellerGender tinyint(1) not null, -- 0:남자, 1:여자
     sellerStatus  tinyint(1) not null -- 0:회원탈퇴, 1:정상회원
 )auto_increment=20000;
+insert into seller_tbl (sellerId, sellerPw, sellerName, sellerPhone, sellerEmail, sellerBirth, sellerGender, sellerStatus)
+values
+    ('seller001', 'sellerPass123', '김상희', '010-1111-2222', 'seller001@email.com', '1980-04-25', 0, 1),
+    ('seller002', 'bestSeller456', '이영수', '010-3333-4444', 'seller002@email.com', '1975-11-17', 0, 1),
+    ('seller003', 'secureSeller789', '박지영', '010-5555-6666', 'seller003@email.com', '1983-08-21', 1, 1),
+    ('seller004', 'topSeller2023', '오철민', '010-7777-8888', 'seller004@email.com', '1979-03-10', 0, 1),
+    ('seller005', 'sellerPass@2023', '정은지', '010-9999-0000', 'seller005@email.com', '1985-07-30', 1, 1);
 
 
 -- 03. 태민 store_tbl
